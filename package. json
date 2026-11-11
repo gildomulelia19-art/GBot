@@ -1,0 +1,14 @@
+
+{
+  "name": "gbot-ai",
+  "version": "1.0.0",
+  "description": "Servidor do GBot AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "openai": "^5.20.0"
+  }
+}
