@@ -1,10 +1,181 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b16">
+  <meta name="description" content="GBot AI - O teu assistente inteligente">
   <title>GBot AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>GBot AI</h1>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-icon">G</div>
+      <div>
+        <h2>GBot <span>AI</span></h2>
+        <small>Intelligent assistant</small>
+      </div>
+      <button class="close-sidebar" id="closeSidebar">×</button>
+    </div>
+
+    <button class="new-chat" id="newChat">
+      <span>＋</span> Nova conversa
+    </button>
+
+    <div class="sidebar-label">MENU PRINCIPAL</div>
+
+    <button class="menu-item active" id="homeButton">
+      <span>⌂</span> Início
+    </button>
+
+    <button class="menu-item" id="historyButton">
+      <span>◷</span> Histórico
+    </button>
+
+    <button class="menu-item" id="settingsButton">
+      <span>⚙</span> Definições
+    </button>
+
+    <div class="sidebar-label">CONVERSAS RECENTES</div>
+    <div id="historyList" class="history-list"></div>
+
+    <div class="sidebar-bottom">
+      <div class="profile">
+        <div class="avatar">G</div>
+        <div class="profile-info">
+          <strong>GBot User</strong>
+          <small>Plano pessoal</small>
+        </div>
+        <span class="online-dot"></span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="top-left">
+        <button class="icon-button mobile-menu" id="menuButton">☰</button>
+        <div>
+          <h3>GBot Assistant</h3>
+          <span class="status"><i></i> Assistente online</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button class="icon-button" id="themeButton" title="Alterar tema">☼</button>
+        <button class="icon-button" id="clearButton" title="Limpar conversa">⌫</button>
+      </div>
+    </header>
+
+    <!-- CHAT -->
+    <section class="chat-area" id="chatArea">
+
+      <div class="welcome" id="welcome">
+        <div class="hero-logo">
+          <div class="hero-logo-inner">G</div>
+          <div class="glow"></div>
+        </div>
+
+        <span class="eyebrow">O FUTURO DA INTELIGÊNCIA</span>
+
+        <h1>Olá! Sou o <span>GBot.</span></h1>
+
+        <p>
+          Estou aqui para ajudar-te a pensar, aprender,
+          criar e descobrir coisas novas.
+        </p>
+
+        <div class="suggestions">
+          <button class="suggestion" data-prompt="Ensina-me programação desde o início.">
+            <span>⌨</span>
+            <strong>Aprender programação</strong>
+            <small>Começar a programar</small>
+          </button>
+
+          <button class="suggestion" data-prompt="Ajuda-me a criar uma ideia de negócio.">
+            <span>✦</span>
+            <strong>Criar ideias</strong>
+            <small>Explorar possibilidades</small>
+          </button>
+
+          <button class="suggestion" data-prompt="Explica-me como funciona a inteligência artificial.">
+            <span>◈</span>
+            <strong>Inteligência artificial</strong>
+            <small>Aprender coisas novas</small>
+          </button>
+
+          <button class="suggestion" data-prompt="Escreve um programa JavaScript para iniciantes.">
+            <span>⌘</span>
+            <strong>Escrever código</strong>
+            <small>Construir projetos</small>
+          </button>
+        </div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+    </section>
+
+    <!-- INPUT -->
+    <footer class="composer-area">
+      <div class="composer">
+        <textarea
+          id="messageInput"
+          placeholder="Escreve a tua mensagem para o GBot..."
+          rows="1"
+          maxlength="8000"
+        ></textarea>
+
+        <div class="composer-bottom">
+          <span class="input-hint">GBot AI pode cometer erros. Confirma informações importantes.</span>
+          <button id="sendButton" class="send-button" disabled>
+            <span>➤</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-credit">
+        Desenvolvido com tecnologia de inteligência artificial.
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-backdrop" id="settingsModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Definições</h2>
+      <button id="closeSettings">×</button>
+    </div>
+
+    <label for="userName">Nome do utilizador</label>
+    <input id="userName" type="text" placeholder="O teu nome">
+
+    <label for="modelSelect">Modelo de IA</label>
+    <select id="modelSelect">
+      <option value="default">Modelo configurado no servidor</option>
+    </select>
+
+    <p class="settings-note">
+      A chave API é guardada exclusivamente no servidor.
+    </p>
+
+    <button id="saveSettings" class="save-button">Guardar definições</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
